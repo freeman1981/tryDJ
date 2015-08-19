@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'polls',
     'mdls',
+    'foo',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -87,3 +88,7 @@ STATIC_URL = '/static/'
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR,  'templates'),
 )
+
+MEDIA_ROOT = BASE_DIR
+
+MEDIA_URL = '/media/'
