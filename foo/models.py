@@ -5,3 +5,6 @@ class Car(models.Model):
     name = models.CharField(max_length=255)
     price = models.DecimalField(max_digits=5, decimal_places=2)
     photo = models.ImageField(upload_to='foo/media')
+
+    def __str__(self):
+        return self.name

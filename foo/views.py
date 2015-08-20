@@ -1,3 +1,7 @@
-from django.shortcuts import render
+from django.views.generic import ListView
+from .models import Car
 
-# Create your views here.
+
+class CarList(ListView):
+    model = Car
+    context_object_name = 'list_of_cars'
