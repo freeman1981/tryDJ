@@ -1,10 +1,11 @@
 from django.shortcuts import get_object_or_404, render
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
 from django.views import generic
 from django.utils import timezone
 
 from .models import Question, Choice
+from django.http import FileResponse
 
 
 class IndexView(generic.ListView):
@@ -49,3 +50,10 @@ def vote(request, question_id):
         # with POST data. This prevents data from being posted twice if a
         # user hits the Back button.
         return HttpResponseRedirect(reverse('polls:results', args=(p.id,)))
+
+
+def bar(request):
+    res = 'get_host() -> ' + request.get_host() + '<br>'
+    res += 'get_full_path() -> ' + request.get_full_path() + '<br>'
+    # return HttpResponse(res)
+    return FileResponse(open('/home/freeman/data/images/gomer-simpson-kartinka.jpg', 'rb'), content_type='image/jpeg')
