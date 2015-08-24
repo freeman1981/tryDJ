@@ -13,6 +13,7 @@ urlpatterns = patterns('',
 
 
                        url(r'^foo/', include('foo.urls')),
+                       url(r'^quiz/', include('mdls.urls')),
                        )
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
