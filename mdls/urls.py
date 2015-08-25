@@ -1,8 +1,8 @@
 from django.conf.urls import url
 
-from .views import QuestionListView
+from .views import QuestionListView, StartQuiz
 
 urlpatterns = [
-    url(r'^$', QuestionListView.as_view(), name='start-quiz'),
+    url(r'^$', StartQuiz.as_view(), name='start_quiz'),
     url(r'^(\d+)$', QuestionListView.as_view(), name='question_list'),
 ]

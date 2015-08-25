@@ -14,10 +14,8 @@ class QuestionListView(ListView):
 
 
 class StartQuiz(RedirectView):
-    permanent = False
-    query_string = True
     pattern_name = 'question_list'
 
     def get_redirect_url(self, *args, **kwargs):
-        get_object_or_404(Question, pk=1)
+        args = (1,)
         return super(StartQuiz, self).get_redirect_url(*args, **kwargs)

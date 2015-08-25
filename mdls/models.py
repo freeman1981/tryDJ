@@ -33,6 +33,8 @@ class Entry(models.Model):
 
 
 class Answer(models.Model):
+    from_q = models.ForeignKey('Question', related_name='rel_q')
+    to_q = models.ForeignKey('Question')
     entry = models.CharField(max_length=100)
 
     def __str__(self):  # __unicode__ on Python 2
@@ -40,10 +42,8 @@ class Answer(models.Model):
 
 
 class Question(models.Model):
-    question = models.ManyToManyField('self', blank=True)
-    answer = models.ManyToManyField(Answer)
+    rel = models.ManyToManyField('self', blank=True, through=Answer, symmetrical=False)
     entry = models.CharField(max_length=100)
 
     def __str__(self):  # __unicode__ on Python 2
         return self.entry
-
