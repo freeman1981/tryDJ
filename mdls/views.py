@@ -1,8 +1,8 @@
 from django.views.generic import ListView
 from django.views.generic.base import RedirectView
-from django.shortcuts import get_list_or_404, get_object_or_404
+from django.shortcuts import get_list_or_404
 
-from .models import Question, Answer
+from .models import Question
 
 
 class QuestionListView(ListView):
