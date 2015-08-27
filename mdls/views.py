@@ -1,5 +1,5 @@
 from django.views.generic import ListView
-from django.views.generic.base import RedirectView
+from django.views.generic.base import RedirectView, TemplateView
 from django.shortcuts import get_list_or_404
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
@@ -41,3 +41,8 @@ def get_name(request):
         form = NameForm()
 
     return render(request, 'mdls/name.html', {'form': form})
+
+
+class Foo(TemplateView):
+
+    template_name = 'mdls/temp_same_origin_policy.html'

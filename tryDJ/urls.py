@@ -11,6 +11,7 @@ urlpatterns = patterns('',
                        url(r'^polls/', include('polls.urls', namespace="polls")),
                        url(r'^admin/', include(admin.site.urls)),
                        url(r'^quiz/', include('mdls.urls')),
+                       url(r'^mdls/', include('mdls.urls')),
                        )
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
